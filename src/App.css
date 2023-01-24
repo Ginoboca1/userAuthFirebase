@@ -1,0 +1,27 @@
+.App-container{
+    display: grid;
+    gap: 40px;
+}
+
+.button-logout{
+    width:150px;
+    height:40px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white;
+    background-color:black;
+    border-radius:6px;
+    border:none;
+    letter-spacing: 1px;
+}
+
+.button-logout:hover{
+    background-color: var(--Red);
+}
+
+.home-container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 2rem;
+}

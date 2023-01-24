@@ -1,0 +1,10 @@
+.alert-banner{
+    background-color: var(--Red);
+    max-width:340px;
+    height:25px;
+    color: white;
+    display:flex;
+    align-items:center;
+    padding:10px;
+    border-radius:6px;
+}
