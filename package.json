@@ -1,6 +1,7 @@
 {
   "name": "firebaseauth",
   "private": true,
+  "homepage": "https://ginoboca1.github.io/userAuthFirebase/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "firebase": "^9.15.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2"
