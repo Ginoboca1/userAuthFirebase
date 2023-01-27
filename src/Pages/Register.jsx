@@ -18,7 +18,7 @@ export const Register = () => {
     e.preventDefault();
     try {
       await signUp(user.email, user.password)
-      navigate('/home')
+      navigate('/userAuthFirebase/home')
     } catch (error) {
       if(error){
         setError('Usuario ya registrado')
@@ -44,8 +44,9 @@ export const Register = () => {
           <label>Email</label>
           <input
             type="text"
-            placeholder="Write an Email"
+            placeholder="Email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
+            required
           />
         </div>
 
@@ -55,6 +56,7 @@ export const Register = () => {
             type="password"
             placeholder="********"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
+            required
           />
         </div>
 
@@ -64,7 +66,7 @@ export const Register = () => {
       </form>
       <div className="text-contain">
         <p>Do you have an account?</p>
-        <NavLink to="/">Login</NavLink>
+        <NavLink to="/userAuthFirebase">Login</NavLink>
       </div>
     </div>
   );

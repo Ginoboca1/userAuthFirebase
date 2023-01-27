@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import {useAuth} from '../Context/authContext'
+import { useAuth } from "../Context/authContext";
 import { Alert } from "../component/Alert";
 import "../styles/Form.css";
 
@@ -11,28 +11,38 @@ export const Login = () => {
   });
 
   const [error, setError] = useState();
-  const { login } = useAuth();
+  const { login, googleLogin, forgotPassword } = useAuth();
+  
   const navigate = useNavigate();
 
-  const handleSubmit = async(e) =>{
-    e.preventDefault()
-    setError('')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
     try {
-      await login(user.email, user.password)
-      navigate('/home');
+      await login(user.email, user.password);
+      navigate("/userAuthFirebase/home");
     } catch (error) {
-      if(error){
-        setError('Contraseña incorrecta')
+      if (error) {
+        setError("Contraseña incorrecta");
       }
-      if(error){
-        setError('Contraseña incorrecta')
+      if (error) {
+        setError("Contraseña incorrecta");
       }
-      if(error.code === 'auth/user-not-found'){
-        setError('Usuario no registrado')
+      if (error.code === "auth/user-not-found") {
+        setError("Usuario no registrado");
       }
     }
+  };
+
+  const handleGoogleLogin = async () => {
+    await googleLogin();
+    navigate("/userAuthFirebase/home");
+  };
+
+  const handleForgotPassword = (email) => {
+    console.log(email)
   }
-  
+
   return (
     <div className="form-container">
       {error && <Alert message={error} />}
@@ -41,8 +51,9 @@ export const Login = () => {
           <label>Email</label>
           <input
             type="text"
-            placeholder="Write an Email"
+            placeholder="Email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
+            required
           />
         </div>
 
@@ -52,20 +63,23 @@ export const Login = () => {
             type="password"
             placeholder="********"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
+            required
           />
         </div>
 
         <div className="submit-area">
           <button type="submit">login</button>
-          <NavLink>Forgot Password?</NavLink>
+          <NavLink to= "/userAuthFirebase/reset-password">Forgot Password?</NavLink>
         </div>
       </form>
 
-      <button className="googleButton">Login with Google</button>
+      <button onClick={handleGoogleLogin} className="googleButton">
+        Login with Google
+      </button>
 
       <div className="text-contain">
         <p>Don't have an account?</p>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/userAuthFirebase/register">Register</NavLink>
       </div>
     </div>
   );

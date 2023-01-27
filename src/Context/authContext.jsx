@@ -20,6 +20,12 @@ const AuthProvider = ( {children} ) => {
     const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
     const logOut = () => signOut(auth);
 
+    const googleLogin = () => {
+        const googleProvider = new GoogleAuthProvider()
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    const forgotPassword = () => sendPasswordResetEmail(auth,email)
     
     useEffect(() => {
         const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -31,7 +37,7 @@ const AuthProvider = ( {children} ) => {
 
 
     return (
-        <AuthContext.Provider value = {{signUp, login, logOut, user, loading}}>
+        <AuthContext.Provider value = {{signUp, login, googleLogin, logOut, forgotPassword, user, loading}}>
             {children}
         </AuthContext.Provider>
     )

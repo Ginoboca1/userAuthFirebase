@@ -9,7 +9,7 @@ export const Home = () =>{
   const handleLogout = async () => {
     try {
       await logOut();
-      navigate('/')
+      navigate("/userAuthFirebase");
     } catch (error) {
     }
   };

@@ -10,6 +10,7 @@ import { Header } from "./component/Navbar";
 import { ProtectedRoutes } from "./component/ProtectedRoutes";
 
 import './App.css';
+import { RecoverPassword } from "./Pages/RecoverPassword";
 
 
 const App = () => {
@@ -19,14 +20,15 @@ const App = () => {
 
       <AuthProvider>
         <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/home" element = {
+          <Route exact path="/userAuthFirebase" element={<Login />} />
+          <Route path="/userAuthFirebase/register" element={<Register />} />
+          <Route path="/userAuthFirebase/about" element={<About />} />
+          <Route path="/userAuthFirebase/home" element = {
             <ProtectedRoutes>
               <Home />
             </ProtectedRoutes>
           }/>
+          <Route path="/userAuthFirebase/reset-password" element = {<RecoverPassword />}/>
         </Routes>
       </AuthProvider>
     </div>
