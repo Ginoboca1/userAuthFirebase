@@ -25,7 +25,7 @@ const AuthProvider = ( {children} ) => {
         return signInWithPopup(auth, googleProvider)
     }
 
-    const forgotPassword = () => sendPasswordResetEmail(auth,email)
+    const forgotPassword = async(email) => sendPasswordResetEmail(auth,email);
     
     useEffect(() => {
         const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
