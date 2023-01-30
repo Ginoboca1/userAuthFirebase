@@ -17,25 +17,24 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(user.email, user.password)
-      navigate('/userAuthFirebase/home')
+      await signUp(user.email, user.password);
+      navigate("/userAuthFirebase/home");
     } catch (error) {
-      if(error){
-        setError('Usuario ya registrado')
+      if (error) {
+        setError("Already registered user");
       }
-      if(error.code === 'auth/internal-error'){
-        setError('Correo Invalido')
+      if (error.code === "auth/internal-error") {
+        setError("Invalid email");
       }
-      if (error.code === 'auth/weak-password'){
-        setError('La contraseña tiene que tener minimo seis caracteres')
+      if (error.code === "auth/weak-password") {
+        setError("The password must have a minimum of six characters");
       }
-      if(error.code === 400){
-        setError('Usuario ya registrado')
-      }  
+      if (error.code === 400) {
+        setError("Already registered user");
+      }
     }
   };
 
-  
   return (
     <div className="form-container">
       {error && <Alert message={error} />}

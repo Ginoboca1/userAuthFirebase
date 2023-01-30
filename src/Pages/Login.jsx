@@ -12,7 +12,7 @@ export const Login = () => {
 
   const [error, setError] = useState();
   const { login, googleLogin, forgotPassword } = useAuth();
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,13 +23,13 @@ export const Login = () => {
       navigate("/userAuthFirebase/home");
     } catch (error) {
       if (error) {
-        setError("Contraseña incorrecta");
+        setError("Incorrect password");
       }
       if (error) {
-        setError("Contraseña incorrecta");
+        setError("Incorrect password");
       }
       if (error.code === "auth/user-not-found") {
-        setError("Usuario no registrado");
+        setError("Not registered user");
       }
     }
   };
@@ -40,8 +40,8 @@ export const Login = () => {
   };
 
   const handleForgotPassword = (email) => {
-    console.log(email)
-  }
+    console.log(email);
+  };
 
   return (
     <div className="form-container">
@@ -69,7 +69,9 @@ export const Login = () => {
 
         <div className="submit-area">
           <button type="submit">login</button>
-          <NavLink to= "/userAuthFirebase/reset-password">Forgot Password?</NavLink>
+          <NavLink to="/userAuthFirebase/reset-password">
+            Forgot Password?
+          </NavLink>
         </div>
       </form>
 
