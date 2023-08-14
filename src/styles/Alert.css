@@ -1,10 +1,37 @@
-.alert-banner{
-    background-color: var(--Red);
-    max-width:340px;
-    height:25px;
-    color: white;
-    display:flex;
-    align-items:center;
-    padding:10px;
-    border-radius:6px;
+.alert-banner {
+  background-color: green;
+  max-width: 340px;
+  height: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.message {
+  margin-left: 10px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon :hover {
+  color: black;
+}
+
+.alert-banner-error {
+  background-color: var(--Red);
+  max-width: 340px;
+  height: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }

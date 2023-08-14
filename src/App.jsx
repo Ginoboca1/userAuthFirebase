@@ -9,9 +9,8 @@ import { Home } from "./Pages/Home";
 import { Header } from "./component/Navbar";
 import { ProtectedRoutes } from "./component/ProtectedRoutes";
 
-import './App.css';
+import "./App.css";
 import { RecoverPassword } from "./Pages/RecoverPassword";
-
 
 const App = () => {
   return (
@@ -20,15 +19,21 @@ const App = () => {
 
       <AuthProvider>
         <Routes>
-          <Route exact path="/userAuthFirebase" element={<Login />} />
-          <Route path="/userAuthFirebase/register" element={<Register />} />
-          <Route path="/userAuthFirebase/about" element={<About />} />
-          <Route path="/userAuthFirebase/home" element = {
-            <ProtectedRoutes>
-              <Home />
-            </ProtectedRoutes>
-          }/>
-          <Route path="/userAuthFirebase/reset-password" element = {<RecoverPassword />}/>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoutes>
+                <Home />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/userAuthFirebase/reset-password"
+            element={<RecoverPassword />}
+          />
         </Routes>
       </AuthProvider>
     </div>

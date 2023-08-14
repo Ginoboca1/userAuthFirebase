@@ -1,0 +1,42 @@
+.form-field {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.form-field-error {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.error-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.error-container-disabled {
+  margin-top: 10px;
+}
+
+.label {
+  color: black;
+  font-weight: bold;
+}
+
+.label-error {
+  color: var(--Red);
+}
+
+.error-container p {
+  color: var(--Red);
+}
+
+.error-icon {
+  color: var(--Red);
+}
+
+.error-icon-disabled {
+  color: transparent;
+}

@@ -1,6 +1,6 @@
 .App-container{
-    display: grid;
-    gap: 40px;
+   display:flex;
+   flex-direction:column;
 }
 
 .button-logout{
