@@ -3,39 +3,65 @@ import { Alert } from "../component/Alert";
 import { useAuth } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { Inputs } from "../component/Inputs";
 import "../styles/Form.css";
+import Joi from "joi";
+import { joiResolver } from "@hookform/resolvers/joi";
+import { useForm } from "react-hook-form";
+
+const schema = Joi.object({
+  email: Joi.string()
+    .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+    .messages({
+      "string.base": "The email must be a text string",
+      "string.empty": "The email is a required field",
+      "string.email": "The email must be a valid email address",
+      "string.minDomainSegments":
+        "The email must have at least 2 domain segments",
+      "string.tlds.allow":
+        "The email must have a valid top-level domain (.com or .net)",
+    }),
+});
 
 export const RecoverPassword = () => {
-  const [email, setEmail] = useState();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+    resolver: joiResolver(schema),
+  });
+
   const [message, setMessage] = useState();
   const { forgotPassword } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (email) {
+  const onSubmit = async (data) => {
+    if (data) {
       setMessage("Recovery code sent,check your email");
+      await forgotPassword(data.email);
       setTimeout(() => {
         setMessage(false);
       }, 4000);
+      navigate("/");
     }
-    await forgotPassword(email);
   };
 
   return (
-    <div className="form-container" onSubmit={handleSubmit}>
+    <div className="form-container">
       <i className="back" onClick={() => navigate(-1)}>
         <BiArrowBack />
       </i>
       {message && <Alert setMessage={setMessage} message={message} />}
-      <form className="form" id="form">
+      <form className="form" id="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-field">
-          <label>Email</label>
-          <input
-            type="text"
-            placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
+          <Inputs
+            type="email"
+            nameInput={"email"}
+            nameTitle={"Email"}
+            register={register}
+            error={errors.email?.message}
           />
         </div>
 

@@ -72,10 +72,6 @@ export const Login = () => {
     navigate("/userAuthFirebase/home");
   };
 
-  const handleForgotPassword = (email) => {
-    console.log(email);
-  };
-
   return (
     <div className="form-container">
       {error && <Alert error={error} setError={setError} message={error} />}

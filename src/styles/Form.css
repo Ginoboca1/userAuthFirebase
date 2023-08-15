@@ -24,13 +24,13 @@
   height: 100px;
   max-width: 300px;
   border-radius: 6px;
-  background-color: #fa9995;
+  background-color: #C8E2FA;
 }
 
 .description {
   word-wrap: break-word;
   padding: 15px;
-  color: var(--Red);
+  color: black;
 }
 
 .form-field {
