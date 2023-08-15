@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { useAuth } from "../Context/authContext";
-import { Alert } from "../component/Alert";
-import { Inputs } from "../component/Inputs";
+import { useAuth } from "@/Context/authContext";
+import { Alert } from "@/component/Alert";
+import { Inputs } from "@/component/Inputs";
 
 import "../styles/Form.css";
 
@@ -57,12 +57,21 @@ export const Login = () => {
     } catch (error) {
       if (error) {
         setError("Incorrect password");
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
       }
       if (error) {
         setError("Incorrect password");
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
       }
       if (error.code === "auth/user-not-found") {
         setError("Not registered user");
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
       }
     }
   };
@@ -100,9 +109,7 @@ export const Login = () => {
           <button clickAction={() => {}} testId="enter-login-btn">
             login
           </button>
-          <NavLink to="/reset-password">
-            Forgot Password?
-          </NavLink>
+          <NavLink to="/reset-password">Forgot Password?</NavLink>
         </div>
       </form>
 

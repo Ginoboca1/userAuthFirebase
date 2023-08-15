@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Alert } from "../component/Alert";
-import { useAuth } from "../Context/authContext";
+import { useAuth } from "@/Context/authContext";
 import "../styles/Form.css";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { Inputs } from "../component/Inputs";
+import { Inputs } from "@/component/Inputs";
 
 const schema = Joi.object({
   email: Joi.string()

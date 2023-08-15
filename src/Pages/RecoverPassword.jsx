@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Alert } from "../component/Alert";
-import { useAuth } from "../Context/authContext";
+import { Alert } from "@/component/Alert";
+import { useAuth } from "@/Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import { Inputs } from "../component/Inputs";
+import { Inputs } from "@/component/Inputs";
 import "../styles/Form.css";
 import Joi from "joi";
 import { joiResolver } from "@hookform/resolvers/joi";
