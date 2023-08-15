@@ -1,14 +1,13 @@
 .alert-banner {
-  background-color: green;
+  background-color: #99F0AB;
   max-width: 340px;
   height: 25px;
-  color: white;
+  color: black;
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 6px;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .message {

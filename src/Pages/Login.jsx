@@ -104,7 +104,7 @@ export const Login = () => {
           <button clickAction={() => {}} testId="enter-login-btn">
             login
           </button>
-          <NavLink to="/userAuthFirebase/reset-password">
+          <NavLink to="/reset-password">
             Forgot Password?
           </NavLink>
         </div>
@@ -116,7 +116,7 @@ export const Login = () => {
 
       <div className="text-contain">
         <p>Don't have an account?</p>
-        <NavLink to="/userAuthFirebase/register">Register</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </div>
     </div>
   );

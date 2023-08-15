@@ -3,19 +3,51 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Alert } from "../component/Alert";
 import { useAuth } from "../Context/authContext";
 import "../styles/Form.css";
+import Joi from "joi";
+import { useForm } from "react-hook-form";
+import { joiResolver } from "@hookform/resolvers/joi";
+import { Inputs } from "../component/Inputs";
+
+const schema = Joi.object({
+  email: Joi.string()
+    .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+    .required()
+    .messages({
+      "string.base": "The email must be a text string",
+      "string.empty": "Email is required",
+      "string.email": "The email must be a valid email address",
+      "string.minDomainSegments":
+        "The email must have at least 2 domain segments",
+      "string.tlds.allow":
+        "The email must have a valid top-level domain (.com or .net)",
+    }),
+  password: Joi.string()
+    .min(8)
+    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+    .required()
+    .messages({
+      "string.pattern.base":
+        "The password must contain at least one lowercase letter, one uppercase letter, and one digit",
+      "string.min": "Password must be at least 8 characters long",
+      "string.empty": "Password is required",
+    }),
+});
 
 export const Register = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+    resolver: joiResolver(schema),
   });
 
   const [error, setError] = useState("");
   const { signUp } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async () => {
     try {
       await signUp(user.email, user.password);
       navigate("/userAuthFirebase/home");
@@ -37,35 +69,35 @@ export const Register = () => {
 
   return (
     <div className="form-container">
-      {error && <Alert message={error} />}
-      <form className="form" onSubmit={handleSubmit}>
+      {error && <Alert error={error} setError={setError} message={error} />}
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-field">
-          <label>Email</label>
-          <input
-            type="text"
-            placeholder="Email"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-            required
+          <Inputs
+            type="email"
+            nameInput={"email"}
+            nameTitle={"Email"}
+            register={register}
+            error={errors.email?.message}
           />
         </div>
 
         <div className="form-field">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="********"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-            required
+          <Inputs
+            type={"password"}
+            nameInput={"password"}
+            nameTitle={"Password"}
+            register={register}
+            error={errors.password?.message}
           />
         </div>
 
         <div className="submit-area">
-          <button type="submit">register</button>
+          <button clickAction={() => {}}>register</button>
         </div>
       </form>
       <div className="text-contain">
         <p>Do you have an account?</p>
-        <NavLink to="/userAuthFirebase">Login</NavLink>
+        <NavLink to="/">Login</NavLink>
       </div>
     </div>
   );

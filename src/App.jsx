@@ -31,7 +31,7 @@ const App = () => {
             }
           />
           <Route
-            path="/userAuthFirebase/reset-password"
+            path="/reset-password"
             element={<RecoverPassword />}
           />
         </Routes>

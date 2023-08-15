@@ -113,6 +113,11 @@
   color: var(--Red);
 }
 
+.back{
+  cursor:pointer;
+  font-size:20px;
+}
+
 .text-contain a:hover {
   text-decoration: underline;
 }
