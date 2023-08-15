@@ -1,4 +1,4 @@
-/* .form-container {
+.form-container {
   display: flex;
   flex-direction: column;
   margin: 20px auto;
@@ -20,7 +20,6 @@
   transform: scale(1.01);
 }
 
-
 .form-field {
   display: grid;
 }
@@ -28,21 +27,6 @@
 .form-field label {
   font-weight: 300;
   letter-spacing: 1px;
-}
-
-.form-field input {
-  height: 30px;
-  padding: 5px;
-  border: none;
-  border-radius: 6px;
-  -webkit-box-shadow: 0px 9px 15px -2px rgba(0, 0, 0, 0.29);
-  focus: none;
-  letter-spacing: 1px;
-  max-width: 300px;
-}
-
-.form-field input:focus {
-  outline: none;
 }
 
 .submit-area {
@@ -58,7 +42,7 @@
   color: black;
 }
 
-.login-btn {
+.form-btn {
   width: 100px;
   height: 40px;
   cursor: pointer;
@@ -70,19 +54,33 @@
   transition: all 0.1s ease-in;
 }
 
-.form button:hover {
+.form-btn:hover {
   background-color: var(--Red);
 }
 
-.form button:active {
+.form-btn:active {
   background-color: var(--Red);
 }
 
-.back{
-  cursor:pointer;
-  font-size:20px;
+.googleButton {
+  width: 360px;
+  height: 50px;
+  -webkit-box-shadow: 0px 9px 15px -2px rgba(0, 0, 0, 0.29);
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.1s ease-in;
 }
 
-.text-contain a:hover {
-  text-decoration: underline;
-} */
+.googleButton:hover {
+  background-color: var(--Blue);
+  color: white;
+}
+
+.text-contain {
+  display: flex;
+  width: 360px;
+  justify-content: space-around;
+  color: var(--Red);
+}

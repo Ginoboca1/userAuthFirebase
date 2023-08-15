@@ -1,7 +1,7 @@
 .contact-container {
   display: flex;
   flex-direction: column;
-  jusitfy-content:center;
+  jusitfy-content: center;
   margin: 20px auto;
 }
 
@@ -14,12 +14,12 @@
   transition: all 0.2s ease-in;
 }
 
-.contenedor-contacto{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+.contenedor-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.links-container{
-    display:grid;
+.links-container {
+  display: grid;
 }

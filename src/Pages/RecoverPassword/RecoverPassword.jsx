@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Alert } from "@/component/Alert";
 import { useAuth } from "@/Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import { Inputs } from "@/component/Inputs";
-import "../styles/Form.css";
+import { Alert } from "@/Components/Alerts/Alert";
+import { Input } from "@/Components/Inputs/Input";
+import "./recoverPassword.css";
 import Joi from "joi";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useForm } from "react-hook-form";
@@ -56,7 +56,7 @@ export const RecoverPassword = () => {
       {message && <Alert setMessage={setMessage} message={message} />}
       <form className="form" id="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-field">
-          <Inputs
+          <Input
             type="email"
             nameInput={"email"}
             nameTitle={"Email"}

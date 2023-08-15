@@ -40,3 +40,23 @@
 .error-icon-disabled {
   color: transparent;
 }
+
+.form-field label {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.form-field input {
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 9px 15px -2px rgba(0, 0, 0, 0.29);
+  focus: none;
+  letter-spacing: 1px;
+  max-width: 300px;
+}
+
+.form-field input:focus {
+  outline: none;
+}

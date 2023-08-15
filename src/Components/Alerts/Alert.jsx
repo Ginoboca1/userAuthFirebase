@@ -1,4 +1,4 @@
-import "../styles/Alert.css";
+import "./alert.css";
 
 export const Alert = ({ error, message }) => {
   return (

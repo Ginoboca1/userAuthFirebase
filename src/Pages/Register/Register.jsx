@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "@/Context/authContext";
+import "./register.css";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { NavLink, useNavigate } from "react-router-dom";
-
-import { useAuth } from "@/Context/authContext";
-import { Alert } from "@/component/Alert";
-import { Inputs } from "@/component/Inputs";
-
-import "../styles/Form.css";
+import { Alert } from "@/Components/Alerts/Alert";
+import { Input } from "@/Components/Inputs/Input";
 
 const schema = Joi.object({
   email: Joi.string()
@@ -35,7 +33,7 @@ const schema = Joi.object({
     }),
 });
 
-export const Login = () => {
+export const Register = () => {
   const {
     register,
     handleSubmit,
@@ -45,40 +43,28 @@ export const Login = () => {
     resolver: joiResolver(schema),
   });
 
-  const [error, setError] = useState();
-  const { login, googleLogin, forgotPassword } = useAuth();
+  const [error, setError] = useState("");
+  const { signUp } = useAuth();
   const navigate = useNavigate();
 
-  const onSubmit = async (e) => {
-    setError("");
+  const onSubmit = async () => {
     try {
-      await login(user.email, user.password);
+      await signUp(user.email, user.password);
       navigate("/userAuthFirebase/home");
     } catch (error) {
       if (error) {
-        setError("Incorrect password");
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
+        setError("Already registered user");
       }
-      if (error) {
-        setError("Incorrect password");
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
+      if (error.code === "auth/internal-error") {
+        setError("Invalid email");
       }
-      if (error.code === "auth/user-not-found") {
-        setError("Not registered user");
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
+      if (error.code === "auth/weak-password") {
+        setError("The password must have a minimum of six characters");
+      }
+      if (error.code === 400) {
+        setError("Already registered user");
       }
     }
-  };
-
-  const handleGoogleLogin = async () => {
-    await googleLogin();
-    navigate("/userAuthFirebase/home");
   };
 
   return (
@@ -86,7 +72,7 @@ export const Login = () => {
       {error && <Alert error={error} setError={setError} message={error} />}
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-field">
-          <Inputs
+          <Input
             type="email"
             nameInput={"email"}
             nameTitle={"Email"}
@@ -96,7 +82,7 @@ export const Login = () => {
         </div>
 
         <div className="form-field">
-          <Inputs
+          <Input
             type={"password"}
             nameInput={"password"}
             nameTitle={"Password"}
@@ -106,20 +92,14 @@ export const Login = () => {
         </div>
 
         <div className="submit-area">
-          <button clickAction={() => {}} testId="enter-login-btn">
-            login
+          <button className="form-btn" clickAction={() => {}}>
+            register
           </button>
-          <NavLink to="/reset-password">Forgot Password?</NavLink>
         </div>
       </form>
-
-      <button onClick={handleGoogleLogin} className="googleButton">
-        Login with Google
-      </button>
-
       <div className="text-contain">
-        <p>Don't have an account?</p>
-        <NavLink to="/register">Register</NavLink>
+        <p>Do you have an account?</p>
+        <NavLink to="/">Login</NavLink>
       </div>
     </div>
   );
