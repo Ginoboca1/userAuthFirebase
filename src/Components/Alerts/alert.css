@@ -1,12 +1,13 @@
 .alert-banner {
-  background-color: #99F0AB;
-  max-width: 340px;
+  border-left: 4px solid var(--Green);
+  background-color: var(--LightGreen);
   height: 25px;
-  color: black;
+  color: var(--Green);
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 6px;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -23,10 +24,10 @@
 }
 
 .alert-banner-error {
-  background-color: var(--Red);
-  max-width: 340px;
+  border-left: 4px solid var(--Accent);
+  background-color: var(--AccentLight);
   height: 25px;
-  color: white;
+  color: #d30a0a;
   display: flex;
   align-items: center;
   padding: 10px;

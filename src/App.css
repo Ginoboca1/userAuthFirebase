@@ -9,14 +9,14 @@
     cursor: pointer;
     text-transform: uppercase;
     color: white;
-    background-color:black;
+    background-color:var(--Black);
     border-radius:6px;
     border:none;
     letter-spacing: 1px;
 }
 
 .button-logout:hover{
-    background-color: var(--Red);
+    background-color: var(--Accent);
 }
 
 .home-container{

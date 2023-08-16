@@ -26,15 +26,15 @@
 }
 
 .label-error {
-  color: var(--Red);
+  color: var(--Accent);
 }
 
 .error-container p {
-  color: var(--Red);
+  color: var(--Accent);
 }
 
 .error-icon {
-  color: var(--Red);
+  color: var(--Accent);
 }
 
 .error-icon-disabled {

@@ -7,7 +7,7 @@
 
 .form {
   max-width: 300px;
-  background-color: white;
+  background-color: var(--White);
   padding: 30px 30px;
   display: grid;
   gap: 20px;
@@ -42,7 +42,7 @@
   height: 40px;
   cursor: pointer;
   text-transform: uppercase;
-  color: white;
+  color: var(--White);
   background-color: black;
   border: none;
   letter-spacing: 1px;
@@ -50,18 +50,18 @@
 }
 
 .form-btn:hover {
-  background-color: var(--Red);
+  background-color: var(--Accent);
 }
 
 .form-btn:active {
-  background-color: var(--Red);
+  background-color: var(--Accent);
 }
 
 .text-contain {
   display: flex;
   width: 360px;
   justify-content: space-around;
-  color: var(--Red);
+  color: var(--Accent);
 }
 
 .text-contain a:hover {

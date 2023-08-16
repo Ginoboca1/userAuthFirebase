@@ -109,7 +109,9 @@ export const Login = () => {
           <button clickAction={() => {}} className="form-btn">
             login
           </button>
-          <NavLink to="/reset-password">Forgot Password?</NavLink>
+          <a className="reset-link">
+            <NavLink to="/reset-password">Forgot Password?</NavLink>
+          </a>
         </div>
       </form>
 

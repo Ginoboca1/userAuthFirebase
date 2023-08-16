@@ -3,14 +3,14 @@
     align-items: center;
     justify-content:space-around;
     background-color: black;
-    color: #e2e2e2;
+    color: var(--White);
     height:5rem;
 }
 
-.header:hover{
+/* .header:hover{
     background-color:#252526;
     transition:0.2s;
-}
+} */
 
 .header h1{
     font-size:1.5rem; 
@@ -26,10 +26,11 @@
     text-decoration:none;
     color: #e2e2e2;
     font-weight:300;
+    transition: all 0.1s ease-in;
 }
 
 .header nav a:hover{
-    color: var(--Red);
+    color: var(--Accent);
 }
 
 .header nav a:last-child{
@@ -37,14 +38,14 @@
     padding:10px;
     margin-left:10px;
     background-color:#e2e2e2;
-    color:black;
+    color:var(--Black);
 }
 .header nav a:last-child:hover{
-    background-color: var(--Red);
+    background-color: var(--Accent);
 }
 
 .header nav a:last-child:active{
-    background-color: var(--Red);
+    background-color: var(--Accent);
     border-radius:6px;
 }
 

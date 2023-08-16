@@ -1,49 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300&display=swap");
 
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-:root{
-    --Red:#DB4437;
-    --Blue:#4285F4;
-    --backgroundColor:#e2e2e2;
-    --mainFont: 'Outfit', sans-serif;
+:root {
+  --Accent: #eb4c38;
+  --AccentLight: #FFB0AB;
+  --GoogleBlue: #4285f4;
+  --Black: #333333;
+  --White: #fff;
+  --BackgroundColor: #e2e2e2;
+  --mainFont: "Outfit", sans-serif;
+  --Green:#3EBD24;
+  --LightGreen:#D9FCDC;
 }
 
-html,body{
-    box-sizing: border-box;
-    font-size: 62,5%;
-    background-color: var(--backgroundColor);
-    font-family: var(--mainFont);
+html,
+body {
+  box-sizing: border-box;
+  font-size: 62, 5%;
+  background-color: var(--backgroundColor);
+  font-family: var(--mainFont);
 }
 
-h1,h2,h3,h4{
-    font-weight:300;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
 }
 
-p{
-    font-size:15px;
-    font-weight:300;
+p {
+  font-size: 15px;
+  font-weight: 300;
 }
 
-a{
-    font-weight:300;
-    cursor:pointer;
-    color: black;
-    text-decoration: none;
-    color: red;
+a {
+  font-weight: 300;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  color: red;
 }
 
-a:hover{
-    color: var(--Red);
-    transition: 0.2s;
+a:hover {
+  color: var(--Red);
+  transition: 0.2s;
 }
 
-a:active{
-    -webkit-tap-highlight-color: transparent;
+a:active {
+  -webkit-tap-highlight-color: transparent;
 }
