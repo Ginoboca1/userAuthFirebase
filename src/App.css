@@ -1,6 +1,7 @@
 .App-container{
    display:flex;
    flex-direction:column;
+   background-color: #EBE8E8;
 }
 
 .button-logout{

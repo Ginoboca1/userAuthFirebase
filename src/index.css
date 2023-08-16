@@ -14,18 +14,17 @@
   --GoogleBlue: #4285f4;
   --Black: #333333;
   --White: #fff;
-  --BackgroundColor: #e2e2e2;
+  --BackgroundColor: #000000;
   --mainFont: "Outfit", sans-serif;
   --Green:#3EBD24;
   --LightGreen:#D9FCDC;
 }
 
-html,
 body {
   box-sizing: border-box;
   font-size: 62, 5%;
-  background-color: var(--backgroundColor);
   font-family: var(--mainFont);
+  background:#EBE8E8;
 }
 
 h1,
